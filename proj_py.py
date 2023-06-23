@@ -1,5 +1,4 @@
-from tkinter import *
-from tkinter import messagebox
+import tkinter as tk
 import datetime
 import math
 
@@ -8,7 +7,7 @@ states_tax_dict = {"AL": 0.04, "AZ": 0.056, "AR": 0.065, "GA": 0.04, "HI": 0.04,
                    "ND": 0.05, "OK": 0.045, "SC": 0.06, "SD": 0.04, "TN": 0.07, "TX": 0.0625,
                    "UT": 0.07, "WV": 0.06, "WI": 0.05, "WY": 0.04}
 
-window = Tk()
+window = tk.Tk()
 window.title("Menstrual Product Lifetime Cost Calculator in the US")
 window.geometry('700x500')
 
@@ -74,48 +73,48 @@ def calculate():
         else:
             sentence = f"The total cost of your period is about ${net_cost:.2f}, without inflation."
         
-        messagebox.showinfo("Calculator Result", sentence)
-        
+        tk.messagebox.showinfo("Calculator Result", sentence)
+    
     except:
-        messagebox.showinfo("Error!", "There was an error in you inputs. Try again!")
+        tk.messagebox.showinfo("Error!", "There was an error in you inputs. Try again!")
 
     
-a = Label(window ,text = "What is your menstrual cycle length in days?").place(x = 100, y = 50)
-b = Label(window ,text = "What is your period length in days?").place(x = 100, y = 75)
-c = Label(window ,text = "How many sanitary products do you use per day?").place(x = 100, y = 100)
-d = Label(window ,text = "How many sanitary products are there per package?").place(x = 100, y = 125)
-e = Label(window ,text = "How much does each package cost?").place(x = 100, y = 150)
+a = tk.Label(window ,text = "What is your menstrual cycle length in days?").place(x = 100, y = 50)
+b = tk.Label(window ,text = "What is your period length in days?").place(x = 100, y = 75)
+c = tk.Label(window ,text = "How many sanitary products do you use per day?").place(x = 100, y = 100)
+d = tk.Label(window ,text = "How many sanitary products are there per package?").place(x = 100, y = 125)
+e = tk.Label(window ,text = "How much does each package cost?").place(x = 100, y = 150)
 
-f = Label(window ,text = "Enter your start date (year/month/day):").place(x = 100, y = 200)
-g = Label(window ,text = "Enter your end date (year/month/day):").place(x = 100, y = 225)
+f = tk.Label(window ,text = "Enter your start date (year/month/day):").place(x = 100, y = 200)
+g = tk.Label(window ,text = "Enter your end date (year/month/day):").place(x = 100, y = 225)
 
-h = Label(window ,text = "What US state do you live in (abbreviation)?").place(x = 100, y = 275)
-h2 = Label(window, text = "(Leave blank if you do not want to include sales tax)").place(x = 100, y = 295)
-i = Label(window ,text = "What is your yearly expected inflation rate (percent)?").place(x = 100, y = 325)
-j = Label(window, text = "(Leave blank if you do not want to include inflation)").place(x = 100, y = 345)
+h = tk.Label(window ,text = "What US state do you live in (abbreviation)?").place(x = 100, y = 275)
+h2 = tk.Label(window, text = "(Leave blank if you do not want to include sales tax)").place(x = 100, y = 295)
+i = tk.Label(window ,text = "What is your yearly expected inflation rate (percent)?").place(x = 100, y = 325)
+j = tk.Label(window, text = "(Leave blank if you do not want to include inflation)").place(x = 100, y = 345)
 
-a1 = Entry(window)
+a1 = tk.Entry(window)
 a1.place(x = 400, y = 50)
-b1 = Entry(window)
+b1 = tk.Entry(window)
 b1.place(x = 400, y = 75)
-c1 = Entry(window)
+c1 = tk.Entry(window)
 c1.place(x = 400, y = 100)
-d1 = Entry(window)
+d1 = tk.Entry(window)
 d1.place(x = 400, y = 125)
-e1 = Entry(window)
+e1 = tk.Entry(window)
 e1.place(x = 400, y = 150)
 
-f1 = Entry(window)
+f1 = tk.Entry(window)
 f1.place(x = 400, y = 200)
-g1 = Entry(window)
+g1 = tk.Entry(window)
 g1.place(x = 400, y = 225)
 
-h1 = Entry(window)
+h1 = tk.Entry(window)
 h1.place(x = 400, y = 275)
-i1 = Entry(window)
+i1 = tk.Entry(window)
 i1.place(x = 400, y = 325)
 
-Button(window, text="Submit", command = calculate).place(x = 425, y = 350)
+tk.Button(window, text="Submit", command = calculate).place(x = 425, y = 350)
 
 window.mainloop()
 
