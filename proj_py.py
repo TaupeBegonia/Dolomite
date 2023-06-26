@@ -95,12 +95,16 @@ def calculate():
         else:
             sentence = f"The total cost of your period is about ${net_cost:.2f}, without inflation."
         
-        tk.messagebox.showinfo("Calculator Result", sentence)
+        
+        # Calculation appears beneath submit button
+        calculation_label.set(sentence)
+        
     
     
     # If the user inputs anything wrong (strings for ints, etc)
     except:
-        tk.messagebox.showinfo("Error!", "There was an error in you inputs. Try again!")
+        calculation_label.set("There was an error in your inputs. Try again!")
+        #tk.messagebox.showinfo("Error!", "There was an error in your inputs. Try again!")
 
 
 # Questions in the form    
@@ -117,6 +121,11 @@ tk.Label(window ,text = "What US state do you live in (abbreviation)?").place(x 
 tk.Label(window, text = "(Leave blank if you do not want to include sales tax)").place(x = 100, y = 295)
 tk.Label(window ,text = "What is your yearly expected inflation rate (percent)?").place(x = 100, y = 325)
 tk.Label(window, text = "(Leave blank if you do not want to include inflation)").place(x = 100, y = 345)
+
+
+# Calculation message that appears at bottom, initially empty
+calculation_label = tk.StringVar(window, "")
+tk.Label(window, textvariable=calculation_label).place(x=100, y=425)
 
 
 # Textboxes in the form
