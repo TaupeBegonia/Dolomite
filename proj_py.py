@@ -21,7 +21,7 @@ def calculate():
     Takes the user inputs and calculates the 
     total lifetime cost for menstrual products 
     
-    Shows the cost in a message box
+    Shows the cost at the window bottom
 
     Returns
     -------
@@ -106,6 +106,27 @@ def calculate():
         calculation_label.set("There was an error in your inputs. Try again!")
         #tk.messagebox.showinfo("Error!", "There was an error in your inputs. Try again!")
 
+def clear():
+    """
+    Clears all textboxes
+
+    Returns
+    -------
+    None.
+
+    """
+    
+    cycle_len_txt.delete(0,'end')
+    period_len_txt.delete(0,'end')
+    num_daily_txt.delete(0,'end')
+    num_pack_txt.delete(0,'end')
+    pack_cost_txt.delete(0,'end')
+    start_input_txt.delete(0,'end')
+    end_input_txt.delete(0,'end')
+    state_txt.delete(0,'end')
+    inflation_txt.delete(0,'end')
+    
+    
 
 # Questions in the form    
 tk.Label(window ,text = "What is your menstrual cycle length in days?").place(x = 100, y = 50)
@@ -164,8 +185,13 @@ inflation_txt.place(x = 400, y = 325)
 # The submit button
 tk.Button(window, text="Submit", command = calculate).place(x = 425, y = 350)
 
+# The clear button
+tk.Button(window, text="Clear All", command = clear).place(x = 425, y = 400)
 
 # Run the application
+# change to
+# if __name__ == "__main__":
+# when object created
 window.mainloop()
 
 
