@@ -2,17 +2,30 @@ import tkinter as tk
 import datetime
 import math
 
+# All states that tax period products
 states_tax_dict = {"AL": 0.04, "AZ": 0.056, "AR": 0.065, "GA": 0.04, "HI": 0.04, "ID": 0.06,
                    "IN": 0.07, "KS": 0.0615, "KY": 0.06, "MS": 0.07, "MO": 0.04225, "NC": 0.0475,
                    "ND": 0.05, "OK": 0.045, "SC": 0.06, "SD": 0.04, "TN": 0.07, "TX": 0.0625,
                    "UT": 0.07, "WV": 0.06, "WI": 0.05, "WY": 0.04}
 
+# Create the tkinter GUI
 window = tk.Tk()
 window.title("Menstrual Product Lifetime Cost Calculator in the US")
 window.geometry('700x500')
 
 
 def calculate():
+    """
+    Takes the user inputs and calculates the 
+    total lifetime cost for menstrual products 
+    
+    Shows the cost in a message box
+
+    Returns
+    -------
+    None.
+
+    """
     try:
         mens_len = int(a1.get())
         per_len = int(b1.get())
