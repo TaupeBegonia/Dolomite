@@ -28,20 +28,21 @@ def calculate():
     None.
 
     """
+    
     try:
         
         # Get all the user inputs
-        mens_len = int(a1.get())
-        per_len = int(b1.get())
-        num_daily = int(c1.get())
-        num_per_pack = int(d1.get())
-        pack_cost = int(e1.get())
+        cycle_len = int(cycle_len_txt.get())
+        period_len = int(period_len_txt.get())
+        num_daily = int(num_daily_txt.get())
+        num_per_pack = int(num_pack_txt.get())
+        pack_cost = int(pack_cost_txt.get())
 
-        start_input = f1.get()
-        end_input = g1.get()
+        start_input = start_input_txt.get()
+        end_input = end_input_txt.get()
 
-        state = h1.get().upper()
-        inflation_rate = i1.get()
+        state = state_txt.get().upper()
+        inflation_rate = inflation_txt.get()
 
         start_list = start_input.split('/')
         end_list = end_input.split('/')
@@ -60,13 +61,13 @@ def calculate():
         #print("There are", diff.days, "days between", start_date, "and", end_date)
 
         # calculate the total number of menstrual cycles
-        num_cycles = diff.days // mens_len
+        num_cycles = diff.days // cycle_len
 
         # calculate the number of years between the dates
         num_years = diff.days // 365
 
         # calculate the total number of days where a period is present in a lifetime
-        total_period_days = num_cycles * per_len
+        total_period_days = num_cycles * period_len
 
         # calculate the total menstrual products used in a lifetime
         total_products_used = total_period_days * num_daily
@@ -119,24 +120,37 @@ tk.Label(window, text = "(Leave blank if you do not want to include inflation)")
 
 
 # Textboxes in the form
-a1 = tk.Entry(window)
-a1.place(x = 400, y = 50)
-b1 = tk.Entry(window)
-b1.place(x = 400, y = 75)
-c1 = tk.Entry(window)
-c1.place(x = 400, y = 100)
-d1 = tk.Entry(window)
-d1.place(x = 400, y = 125)
-e1 = tk.Entry(window)
-e1.place(x = 400, y = 150)
-f1 = tk.Entry(window)
-f1.place(x = 400, y = 200)
-g1 = tk.Entry(window)
-g1.place(x = 400, y = 225)
-h1 = tk.Entry(window)
-h1.place(x = 400, y = 275)
-i1 = tk.Entry(window)
-i1.place(x = 400, y = 325)
+
+# for some reason I have to separate the textbox creation and placement
+cycle_len_txt = tk.Entry(window)
+cycle_len_txt.place(x = 400, y = 50)
+
+period_len_txt = tk.Entry(window)
+period_len_txt.place(x = 400, y = 75)
+
+num_daily_txt = tk.Entry(window)
+num_daily_txt.place(x = 400, y = 100)
+
+num_pack_txt = tk.Entry(window)
+num_pack_txt.place(x = 400, y = 125)
+
+pack_cost_txt = tk.Entry(window)
+pack_cost_txt.place(x = 400, y = 150)
+
+
+start_input_txt = tk.Entry(window)
+start_input_txt.place(x = 400, y = 200)
+
+end_input_txt = tk.Entry(window)
+end_input_txt.place(x = 400, y = 225)
+
+
+state_txt = tk.Entry(window)
+state_txt.place(x = 400, y = 275)
+
+inflation_txt = tk.Entry(window)
+inflation_txt.place(x = 400, y = 325)
+
 
 # The submit button
 tk.Button(window, text="Submit", command = calculate).place(x = 425, y = 350)
