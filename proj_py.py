@@ -13,9 +13,21 @@ states_tax_dict = {"AL": 0.04, "AZ": 0.056, "AR": 0.065, "GA": 0.04,
 # Create the tkinter GUI
 window = tk.Tk()
 window.title("Menstrual Product Lifetime Cost Calculator in the US")
-window.geometry('700x500')
+window.geometry('650x500')
 
 
+# Define the application class
+# work in progress!!
+class CostCalcApp:
+    def __init__(self):
+        self.main = tk.Tk()
+        self.main.title("Menstrual Product Lifetime Cost Calculator in the US")
+        self.main.geometry('650x500')
+        
+        
+        
+        
+        
 def calculate():
     """
     Takes the user inputs and calculates the 
@@ -128,6 +140,14 @@ def clear():
     
     
 def about():
+    """
+    Shows a messagebox about this app
+
+    Returns
+    -------
+    None.
+
+    """
     tk.messagebox.showinfo("About this app", "This is the Menstual Product Lifetime Cost Calculator")
 
 # Create the menu bar
