@@ -127,6 +127,27 @@ def clear():
     inflation_txt.delete(0,'end')
     
     
+def about():
+    tk.messagebox.showinfo("About this app", "This is the Menstual Product Lifetime Cost Calculator")
+
+# Create the menu bar
+menubar = tk.Menu(window)
+
+# Create the File menu
+file_menu = tk.Menu(menubar, tearoff=0)
+file_menu.add_command(label="Close", command=window.destroy)
+file_menu.add_command(label="Clear All", command=clear)
+menubar.add_cascade(label="File", menu=file_menu)
+
+# Create the Help menu
+help_menu = tk.Menu(menubar, tearoff=0)
+help_menu.add_command(label="About", command=about)
+menubar.add_cascade(label="Help", menu=help_menu)
+
+# Display the menu bar
+window.config(menu=menubar)
+
+
 
 # Questions in the form    
 tk.Label(window ,text = "What is your menstrual cycle length in days?").place(x = 100, y = 50)
