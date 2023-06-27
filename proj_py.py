@@ -206,9 +206,6 @@ inflation_txt.place(x = 400, y = 325)
 # The submit button
 tk.Button(window, text="Submit", command = calculate).place(x = 425, y = 350)
 
-# The clear button
-tk.Button(window, text="Clear All", command = clear).place(x = 425, y = 400)
-
 # Run the application
 # change to
 # if __name__ == "__main__":
