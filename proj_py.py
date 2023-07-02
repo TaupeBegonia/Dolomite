@@ -129,6 +129,9 @@ class CostCalcApp:
         file_menu = tk.Menu(menubar, tearoff=0)
         file_menu.add_command(label="Close", command=self.main.destroy)
         file_menu.add_command(label="Clear All", command=self.clear)
+        file_menu.add_separator()
+        file_menu.add_command(label="Save", command=self.save)
+        file_menu.add_command(label="Load", command=self.load)
         menubar.add_cascade(label="File", menu=file_menu)
 
         # Create the Help menu
@@ -173,6 +176,30 @@ class CostCalcApp:
         self.inflation_txt.delete(0,'end')
 
 
+    def save(self):
+        """
+        Save the textbox values in a .csv file
+
+        Returns
+        -------
+        None.
+
+        """
+        pass
+    
+    
+    def load(self):
+        """
+        Load in values from a .csv file into the textboxes
+
+        Returns
+        -------
+        None.
+
+        """
+        pass
+    
+    
 
     def calculate(self):
         """
