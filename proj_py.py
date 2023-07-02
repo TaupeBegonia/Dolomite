@@ -134,14 +134,17 @@ class CostCalcApp:
         file_menu.add_command(label="Load", command=self.load)
         menubar.add_cascade(label="File", menu=file_menu)
 
+        # Create the Plot menu
+        plot_menu = tk.Menu(menubar, tearoff=0)
+        plot_menu.add_command(label="Plot Graph", command=self.plot)
+        menubar.add_cascade(label="Plot", menu=plot_menu)
+        
         # Create the Help menu
         help_menu = tk.Menu(menubar, tearoff=0)
         help_menu.add_command(label="About", command=self.about)
         menubar.add_cascade(label="Help", menu=help_menu)
 
-        
-        
-        
+
     def about(self):
         """
         Shows a messagebox about this app
@@ -200,6 +203,24 @@ class CostCalcApp:
         pass
     
     
+    
+    def plot(self):
+        """
+        Plots a graph based on values in a new window
+
+        Returns
+        -------
+        None.
+
+        """
+        # Create a new window for the plot
+        new_plot = tk.Tk()
+        new_plot.title("The Plot")
+        new_plot.geometry("300x300")
+        
+        new_plot.mainloop()
+
+
 
     def calculate(self):
         """
