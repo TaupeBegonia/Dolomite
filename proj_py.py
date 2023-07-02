@@ -22,21 +22,8 @@ class CostCalcApp:
         self.main.title("Menstrual Product Lifetime Cost Calculator in the US")
         self.main.geometry('650x500')
         
-        
-        # Questions in the form    
-        tk.Label(self.main, text = "What is your menstrual cycle length in days?").place(x = 100, y = 50)
-        tk.Label(self.main, text = "What is your period length in days?").place(x = 100, y = 75)
-        tk.Label(self.main, text = "How many sanitary products do you use per day?").place(x = 100, y = 100)
-        tk.Label(self.main, text = "How many sanitary products are there per package?").place(x = 100, y = 125)
-        tk.Label(self.main, text = "How much does each package cost?").place(x = 100, y = 150)
-
-        tk.Label(self.main, text = "Enter your start date (year/month/day):").place(x = 100, y = 200)
-        tk.Label(self.main, text = "Enter your end date (year/month/day):").place(x = 100, y = 225)
-
-        tk.Label(self.main, text = "What US state do you live in (abbreviation)?").place(x = 100, y = 275)
-        tk.Label(self.main, text = "(Leave blank if you do not want to include sales tax)").place(x = 100, y = 295)
-        tk.Label(self.main, text = "What is your yearly expected inflation rate (percent)?").place(x = 100, y = 325)
-        tk.Label(self.main, text = "(Leave blank if you do not want to include inflation)").place(x = 100, y = 345)
+        # Add the questions
+        self.add_labels()
         
         
         # Textboxes in the form
@@ -80,25 +67,77 @@ class CostCalcApp:
         tk.Label(self.main, textvariable=self.calculation_label).place(x=100, y=425)
         
         
-        # Create the menu bar
+        # Create and display the menu bar
         self.menubar = tk.Menu(self.main)
-
-        # Create the File menu
-        file_menu = tk.Menu(self.menubar, tearoff=0)
-        file_menu.add_command(label="Close", command=self.main.destroy)
-        file_menu.add_command(label="Clear All", command=self.clear)
-        self.menubar.add_cascade(label="File", menu=file_menu)
-
-        # Create the Help menu
-        help_menu = tk.Menu(self.menubar, tearoff=0)
-        help_menu.add_command(label="About", command=self.about)
-        self.menubar.add_cascade(label="Help", menu=help_menu)
-
-        # Display the menu bar
+        self.add_menus(self.menubar)
         self.main.config(menu=self.menubar)
         
+        
     def run(self):
+        """
+        Run the app
+
+        Returns
+        -------
+        None.
+
+        """
         self.main.mainloop()
+        
+        
+        
+    def add_labels(self):
+        """
+        Add form questions
+
+        Returns
+        -------
+        None.
+
+        """
+        tk.Label(self.main, text = "What is your menstrual cycle length in days?").place(x = 100, y = 50)
+        tk.Label(self.main, text = "What is your period length in days?").place(x = 100, y = 75)
+        tk.Label(self.main, text = "How many sanitary products do you use per day?").place(x = 100, y = 100)
+        tk.Label(self.main, text = "How many sanitary products are there per package?").place(x = 100, y = 125)
+        tk.Label(self.main, text = "How much does each package cost?").place(x = 100, y = 150)
+
+        tk.Label(self.main, text = "Enter your start date (year/month/day):").place(x = 100, y = 200)
+        tk.Label(self.main, text = "Enter your end date (year/month/day):").place(x = 100, y = 225)
+
+        tk.Label(self.main, text = "What US state do you live in (abbreviation)?").place(x = 100, y = 275)
+        tk.Label(self.main, text = "(Leave blank if you do not want to include sales tax)").place(x = 100, y = 295)
+        tk.Label(self.main, text = "What is your yearly expected inflation rate (percent)?").place(x = 100, y = 325)
+        tk.Label(self.main, text = "(Leave blank if you do not want to include inflation)").place(x = 100, y = 345)
+        
+        
+        
+    def add_menus(self, menubar):
+        """
+        Add menu options to the menubar
+
+        Parameters
+        ----------
+        menubar : tkinter menubar
+            an empty menubar
+
+        Returns
+        -------
+        None.
+
+        """
+        # Create the File menu
+        file_menu = tk.Menu(menubar, tearoff=0)
+        file_menu.add_command(label="Close", command=self.main.destroy)
+        file_menu.add_command(label="Clear All", command=self.clear)
+        menubar.add_cascade(label="File", menu=file_menu)
+
+        # Create the Help menu
+        help_menu = tk.Menu(menubar, tearoff=0)
+        help_menu.add_command(label="About", command=self.about)
+        menubar.add_cascade(label="Help", menu=help_menu)
+
+        
+        
         
     def about(self):
         """
@@ -110,6 +149,8 @@ class CostCalcApp:
 
         """
         tk.messagebox.showinfo("About this app", "This is the Menstual Product Lifetime Cost Calculator")
+        
+        
         
     def clear(self):
         """
@@ -130,6 +171,8 @@ class CostCalcApp:
         self.end_input_txt.delete(0,'end')
         self.state_txt.delete(0,'end')
         self.inflation_txt.delete(0,'end')
+
+
 
     def calculate(self):
         """
@@ -224,7 +267,7 @@ class CostCalcApp:
       
 
 
-
+# Run the program
 if __name__ == "__main__":
     window = CostCalcApp()
     window.run()
