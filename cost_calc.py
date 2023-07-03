@@ -1,6 +1,7 @@
 import tkinter as tk
 import datetime
 import math
+import csv
 
 # All states that tax period products
 states_tax_dict = {"AL": 0.04, "AZ": 0.056, "AR": 0.065, "GA": 0.04,
@@ -188,8 +189,28 @@ class CostCalcApp:
         None.
 
         """
-        pass
-    
+        
+        fields = ['Cycle Length', 'Period Length', 'Daily Used',
+                  'Package Amount', 'Package Cost', 'Start Date', 'End Date', 
+                  'State Tax', 'Inflation Rate']
+        
+        values = [self.cycle_len_txt.get(), self.period_len_txt.get(), 
+                  self.num_daily_txt.get(), self.num_pack_txt.get(), 
+                  self.pack_cost_txt.get(), self.start_input_txt.get(), 
+                  self.end_input_txt.get(), self.state_txt.get(), 
+                  self.inflation_txt.get()]
+        
+        # Create a csv file
+        with open("cost-values.csv", 'w', newline='') as file:
+            csv_writer = csv.writer(file)
+            
+            # Write the field names
+            csv_writer.writerow(fields)
+            
+            # Write the user input values
+            csv_writer.writerow(values)
+            
+            
     
     def load(self):
         """
