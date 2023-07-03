@@ -221,7 +221,27 @@ class CostCalcApp:
         None.
 
         """
-        pass
+        # Read from a predefined file name
+        # change later to user selected file
+        with open("cost-values.csv", 'r') as file:
+            
+            # Skip the first row of field names
+            next(file)
+            
+            csv_reader = csv.reader(file)
+            
+            # Load in the values
+            for line in csv_reader:
+                self.cycle_len_txt.insert(0, line[0])
+                self.period_len_txt.insert(0, line[1])
+                self.num_daily_txt.insert(0, line[2])
+                self.num_pack_txt.insert(0, line[3])
+                self.pack_cost_txt.insert(0, line[4])
+                self.start_input_txt.insert(0, line[5])
+                self.end_input_txt.insert(0, line[6])
+                self.state_txt.insert(0, line[7])
+                self.inflation_txt.insert(0, line[8])
+            
     
     
     
